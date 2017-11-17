@@ -1,0 +1,38 @@
+---
+layout: layout
+title: Songs by Mny Singh
+---
+
+<div class="container">
+	{% assign posts=site.posts | where:"song", "original" %}
+		{% assign psize = posts | size %}
+			{% if psize == 0 %}
+				<h3>We'll release soon!</h3>
+  			<div class="panel panel-default">
+    	<div class="panel-body">
+    	 	<h2 class="text-center">Keep listening to cover songs &#9786;</h2>
+				{% else %}
+
+	<h3>Archive</h3>
+  <div class="panel panel-default">
+    <div class="panel-body">
+    	
+     		{% for post in posts %}
+			<div class="row">
+				 <div class="col-sm-4 col-md-4 col-lg-4">
+					 <h5 style="text-align: right">
+					 	{{ post.date | date: "%B %e, %Y" }}
+					 </h5>
+				 </div>
+				 <div class="col-sm-8 col-md-8 col-lg-8">
+					 <h5 style="text-align: left">
+					 	<strong><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></strong>
+					 </h5>
+				 </div>
+			</div>
+	    {% endfor %}
+	    	{% endif %}
+
+	</div>
+  </div>
+</div>
